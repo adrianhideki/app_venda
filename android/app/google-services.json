@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "374043211340",
+    "firebase_url": "https://lolja-84600.firebaseio.com",
+    "project_id": "lolja-84600",
+    "storage_bucket": "lolja-84600.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374043211340:android:bdbdfdf65159527bdd66e9",
+        "android_client_info": {
+          "package_name": "br.com.hideki.lolja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374043211340-p1o34iip6bktfd4ppfecksion1kqkpsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.hideki.lolja",
+            "certificate_hash": "3f55e034a7f154aa1eb612ce8169abf3b2d7a71d"
+          }
+        },
+        {
+          "client_id": "374043211340-prl2j3ba863fucinunkrffptf2ll2n9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-cpNT2nITzs-LoKYclhTuMQuaZg1R4dE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374043211340-prl2j3ba863fucinunkrffptf2ll2n9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
