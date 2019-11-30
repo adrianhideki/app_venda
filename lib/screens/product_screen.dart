@@ -25,6 +25,8 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     final Color primaryColor = Theme.of(context).primaryColor;
+    final _scaffoldKey = GlobalKey<ScaffoldState>();
+
 
     Color _getSizeColor(String selectedSize, String size) {
       return selectedSize == size ? primaryColor : Colors.grey[500];
@@ -35,6 +37,7 @@ class _ProductScreenState extends State<ProductScreen> {
         title: Text(product.title),
         centerTitle: true,
       ),
+      key: _scaffoldKey,
       body: ListView(
         children: <Widget>[
           AspectRatio(
@@ -136,6 +139,11 @@ class _ProductScreenState extends State<ProductScreen> {
                         cartProduct.productData = product;
 
                         CartModel.of(context).addCartItem(cartProduct);
+                        ShowSnackBar(_scaffoldKey, SnackBar(
+                          content: Text("Produto adicionado ao carrinho"),
+                          backgroundColor: getPrimaryColor(context),
+                          duration: Duration(seconds: 2),
+                        ));
                       } else {
                         pageMove(context, LoginScreen());
                       }

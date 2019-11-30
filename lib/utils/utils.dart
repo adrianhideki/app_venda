@@ -12,3 +12,7 @@ Future<dynamic> pageReplace(BuildContext context, dynamic page){
 void ShowSnackBar(GlobalKey<ScaffoldState> _key, SnackBar _snack){
   _key.currentState.showSnackBar(_snack);
 }
+
+Color getPrimaryColor(BuildContext context){
+  return Theme.of(context).primaryColor;
+}
