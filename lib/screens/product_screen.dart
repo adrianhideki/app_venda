@@ -1,6 +1,11 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:lolja/datas/cart_product.dart';
 import 'package:lolja/datas/product_data.dart';
+import 'package:lolja/models/cart_model.dart';
+import 'package:lolja/models/user_model.dart';
+import 'package:lolja/screens/login_screen.dart';
+import 'package:lolja/utils/utils.dart';
 
 class ProductScreen extends StatefulWidget {
   final ProductData product;
@@ -121,10 +126,25 @@ class _ProductScreenState extends State<ProductScreen> {
                 SizedBox(
                   height: 44.0,
                   child: RaisedButton(
-                    onPressed: size != null ? () {} : null,
+                    onPressed: size != null ? () {
+                      if (UserModel.of(context).isLoggedIn()){
+                        CartProduct cartProduct = new CartProduct();
+                        cartProduct.size = size;
+                        cartProduct.quantity = 1;
+                        cartProduct.pid = product.id;
+                        cartProduct.category = product.category;
+                        cartProduct.productData = product;
+
+                        CartModel.of(context).addCartItem(cartProduct);
+                      } else {
+                        pageMove(context, LoginScreen());
+                      }
+                    } : null,
                     color: primaryColor,
                     child: Text(
-                      "Adicionar ao carrinho",
+                      UserModel.of(context).isLoggedIn()
+                          ? "Adicionar ao carrinho"
+                          : "Entre para comprar",
                       style: TextStyle(
                         fontSize: 18.0,
                         color: Colors.white,

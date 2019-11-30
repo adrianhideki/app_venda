@@ -8,3 +8,7 @@ Future<dynamic> pageMove(BuildContext context, dynamic page){
 Future<dynamic> pageReplace(BuildContext context, dynamic page){
   return Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => page));
 }
+
+void ShowSnackBar(GlobalKey<ScaffoldState> _key, SnackBar _snack){
+  _key.currentState.showSnackBar(_snack);
+}
