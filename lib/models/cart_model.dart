@@ -83,4 +83,28 @@ class CartModel extends Model {
         query.documents.map((doc) => (CartProduct.fromDocument(doc))).toList();
     notifyListeners();
   }
+
+  double getProductsPrice(){
+    double price = 0.0;
+
+    for(CartProduct c in products){
+      if(c.productData != null){
+        price += c.quantity  * c.productData.price;
+      }
+    }
+
+    return price;
+  }
+
+  double getDiscount(){
+    return getProductsPrice()??0.0 * (discountPercentage??0.0 / 100);
+  }
+
+  double getShipPrice(){
+    return 15.0;
+  }
+
+  void updatePrices(){
+    notifyListeners();
+  }
 }
