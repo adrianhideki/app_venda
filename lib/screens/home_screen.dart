@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lolja/screens/cart_screen.dart';
 import 'package:lolja/tabs/home_tab.dart';
 import 'package:lolja/tabs/products_tab.dart';
+import 'package:lolja/tiles/cart_button.dart';
 import 'package:lolja/widgets/custom_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,6 +18,7 @@ class HomeScreen extends StatelessWidget {
         Scaffold(
           body: HomeTab(),
           drawer: CustomDrawer(_pageController),
+          floatingActionButton: CartButton(),
         ),
         Scaffold(
           appBar: AppBar(
@@ -24,13 +27,12 @@ class HomeScreen extends StatelessWidget {
           ),
           drawer: CustomDrawer(_pageController),
           body: ProductsTab(),
+          floatingActionButton: CartButton(),
         ),
         Container(
           color: Colors.blue,
         ),
-        Container(
-          color: Colors.green,
-        ),
+        CartScreen(),
       ],
     );
   }
